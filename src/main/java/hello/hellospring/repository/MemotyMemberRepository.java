@@ -8,7 +8,8 @@ public class MemotyMemberRepository implements MemberRepository {
 
     private static Map<Long, Member> store = new HashMap<>();
     private static long sequence = 0L;
-
+    //실무에서는 동시성 고려해야함
+    
     @Override
     public Member save(Member member) {
         member.setId(++sequence);
@@ -18,7 +19,8 @@ public class MemotyMemberRepository implements MemberRepository {
 
     @Override
     public Optional<Member> findById(Long id) {
-        return Optional.ofNullable(store.get(id));
+
+        return Optional.ofNullable(store.get(id));  //null이 반환될 가능성이 있으면 store.get(id)에 Optional감싸서 return
     }
 
     @Override
@@ -30,6 +32,7 @@ public class MemotyMemberRepository implements MemberRepository {
 
     @Override
     public List<Member> findAll() {
+
         return new ArrayList<>(store.values());
     }
 }
