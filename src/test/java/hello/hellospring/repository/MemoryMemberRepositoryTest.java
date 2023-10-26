@@ -10,10 +10,6 @@ import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.*;
 
-<<<<<<< HEAD
-// 테스트 코드 작성
-=======
->>>>>>> origin/main
 class MemoryMemberRepositoryTest {
     // 테스트 한번에 가능
     // 테스트 순서는 보장 안됨
