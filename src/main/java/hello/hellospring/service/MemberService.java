@@ -15,7 +15,17 @@ public class MemberService {
 // -> test에서 생성한 MemoryMemberRepository 같은 객체로 사용하기 위해 아래와 같이 바꿈
     private final MemberRepository memberRepository;
 
+/** setter주입  단점:public하게 노출
+    private MemberService memberService;
+
     @Autowired
+    public void setMemberRepository(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
+*/
+
+
+    //    @Autowired    // 스프링빈 직접 등록하기 위해 지운다
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }

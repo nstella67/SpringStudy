@@ -11,7 +11,19 @@ public class MemberController {
     이렇게 new 로 생성해서 사용할 수 있다.
     그러나 이렇게 사용하면 MemberController 말고, 다른 여러 Controller들이 MemberService를 가져다 쓸 수 있는데, 여러 개 생성할 필요 없이 공용으로 쓰면 된다.
     */
+
+//    @Autowired private MemberService memberService;   // 필드주입. 별로 안좋다. 바꿀 수 있는 방법이 없다.
     private final MemberService memberService;
+
+    /**
+     * setter 의존
+     private MemberService memberService;
+
+     @Autowired
+     public MemberController(MemberService memberService) {
+        this.memberService = memberService;
+     }
+     */
 
     @Autowired
     public MemberController(MemberService memberService) {
