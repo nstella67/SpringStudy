@@ -16,7 +16,8 @@ public class MemberController {
     private final MemberService memberService;
 
     /**
-     * setter 의존
+     * setter 주입. setter를 통해 주입
+     * 단점 public하게 노출됨
      private MemberService memberService;
 
      @Autowired
@@ -25,6 +26,7 @@ public class MemberController {
      }
      */
 
+    // 생성자 주입. 생성자를 통해서 들어오는 것
     @Autowired
     public MemberController(MemberService memberService) {
         this.memberService = memberService;
