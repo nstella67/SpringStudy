@@ -45,17 +45,19 @@ public class MemberController {
     -> MemberService @Service, MemoryMemberRepository @Repository 해준다
      */
 
-    // 조회할때
+    // url입력, 조회할때
     @GetMapping("/members/new")
     public String createForm() {
         return "members/createMemberForm";
     }
 
-    // 데이터를 전달할때
+    // 데이터를 전달할때(등록)
     @PostMapping("/members/new")
     public String create(MemberForm form) {
         Member member = new Member();
         member.setName(form.getName());
+
+//        System.out.println("member = " + member.getName());
 
         memberService.join(member);
 
