@@ -5,11 +5,13 @@ import hello.hellospring.repository.MemberRepository;
 import hello.hellospring.repository.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 //@Service
+@Transactional
 public class MemberService {
 //    private final MemberRepository memberRepository = new MemoryMemberRepository();
 // -> test에서 생성한 MemoryMemberRepository 같은 객체로 사용하기 위해 아래와 같이 바꿈
