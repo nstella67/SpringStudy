@@ -25,6 +25,8 @@ public class SpringConfig {
     }   // 방법2 end
     */
 
+    /*
+
 //    @PersistenceContext
     private EntityManager em;
 
@@ -32,18 +34,26 @@ public class SpringConfig {
     public SpringConfig(EntityManager em) {
         this.em = em;
     }
+    */
+
+    private final MemberRepository memberRepository;
+
+    @Autowired
+    public SpringConfig(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     @Bean
     public MemberService memberService() {
-       return new MemberService(memberRepository());
+       return new MemberService(memberRepository);
    }    //MemberService를 스프링빈에 등록해라
 
-    @Bean
-    public MemberRepository memberRepository() {
+//    @Bean
+//    public MemberRepository memberRepository() {
 //       return new MemoryMemberRepository();
 //       return new JdbcMemberRepository(dataSource);
 //        return new JdbcTemplateMemberRepository(dataSource);
-        return new JpaMemberRepository(em);
-    }
+//        return new JpaMemberRepository(em);
+//    }
     // MemberService, MemberRepository를 스프링빈에 등록하고
 }
